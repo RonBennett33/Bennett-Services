@@ -118,7 +118,22 @@
         </div>
         <div class="contact-copy">
           <p>Tell us what you’re building and where you’d like to go. We’ll talk through your goals and find a good place to start.</p>
-          <a class="button button-dark" href="mailto:hello@bennettservices.com?subject=Let%27s%20talk%20about%20my%20business">Tell us about your business <span aria-hidden="true">↗</span></a>
+          <form class="contact-form" id="contact-form" action="/api/contact" method="post">
+            <label for="contact-name">Your name</label>
+            <input id="contact-name" name="name" autocomplete="name" maxlength="100" required>
+
+            <label for="contact-email">Email address</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+
+            <label for="contact-business">Business name <span>(optional)</span></label>
+            <input id="contact-business" name="business" autocomplete="organization" maxlength="120">
+
+            <label for="contact-message">How can we help?</label>
+            <textarea id="contact-message" name="message" rows="4" maxlength="3000" required></textarea>
+
+            <button class="button button-dark" type="submit">Send your message <span aria-hidden="true">↗</span></button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </section>
     </main>
@@ -131,5 +146,6 @@
       <p>Websites and SEO for growing businesses.</p>
       <span>© <span id="year">2026</span> Bennett Services</span>
     </footer>
+    <script src="app.js" defer></script>
   </body>
 </html>
